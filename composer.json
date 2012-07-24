@@ -1,0 +1,25 @@
+{
+    "name": "sly/pushover-bundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony2 bundle for easy PushOver service use: send real-time notifications to your Android and iOS devices.",
+    "keywords": ["pushover", "service", "push", "notification", "iphone", "android"],
+    "homepage": "https://github.com/Ph3nol/PushOverBundle",
+    "license": "MIT",
+    "authors": [{
+        "name": "Cédric Dugat",
+        "email": "ph3@slynett.com"
+    }, {
+        "name": "Community contributors",
+        "homepage": "https://github.com/Ph3nol/PushOverBundle/graphs/contributors"
+    }],
+    "require": {
+        "php": ">=5.3.2",
+        "sly/pushover": "dev-master"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-0": { "Sly\\PushOverBundle": "" }
+    },
+    "target-dir": "Sly/PushOverBundle"
+}

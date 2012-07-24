@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sly_pushover.config_manager.class">Sly\PushOverBundle\Config\ConfigManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="sly_pushover.config_manager" class="%sly_pushover.config_manager.class%" public="false">
+            <argument>%sly_pushover.config%</argument>
+        </service>
+    </services>
+
+</container>
