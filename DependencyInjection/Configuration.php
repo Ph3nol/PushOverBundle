@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
 
         $treeBuilder
-            ->root('sly_pushover')
+            ->root('sly_push_over')
                 ->addDefaultsIfNotSet()
                 ->children()
                     ->arrayNode('pushes')

@@ -31,6 +31,6 @@ class SlyPushOverExtension extends Extension
 
         /* --- Configuration management and overloads --- */
 
-        $container->setParameter('sly_pushover.config', $configuration);
+        $container->setParameter('sly_push_over.config', $configuration);
     }
 }

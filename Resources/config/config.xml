@@ -5,12 +5,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="sly_pushover.config_manager.class">Sly\PushOverBundle\Config\ConfigManager</parameter>
+        <parameter key="sly_push_over.config_manager.class">Sly\PushOverBundle\Config\ConfigManager</parameter>
     </parameters>
 
     <services>
-        <service id="sly_pushover.config_manager" class="%sly_pushover.config_manager.class%" public="false">
-            <argument>%sly_pushover.config%</argument>
+        <service id="sly_push_over.config_manager" class="%sly_push_over.config_manager.class%" public="false">
+            <argument>%sly_push_over.config%</argument>
         </service>
     </services>
 
