@@ -1,16 +1,16 @@
 <?php
 
-namespace Sly\PushOverBundle\Model;
+namespace Sly\PushOverBundle\Manager;
 
-use Sly\PushOverBundle\Model\PushInterface;
+use Sly\PushOverBundle\Model\PusherInterface;
 
 /**
- * Pushes collection.
+ * ManagerPushers collection.
  *
  * @uses IteratorAggregate
  * @author Cédric Dugat <ph3@slynett.com>
  */
-class PushesCollection implements \IteratorAggregate
+class ManagerPushersCollection implements \IteratorAggregate
 {
     protected $coll;
 
@@ -33,18 +33,18 @@ class PushesCollection implements \IteratorAggregate
     /**
      * Set method.
      *
-     * @param string        $name Name
-     * @param PushInterface $push Push
+     * @param string          $name   Pusher Name
+     * @param PusherInterface $pusher Pusher
      */
-    public function set($name, PushInterface $push)
+    public function set($name, PusherInterface $pusher)
     {
-        $this->coll[$name] = $push;
+        $this->coll[$name] = $pusher;
     }
 
     /**
      * Get method.
      *
-     * @param string $name Push name
+     * @param string $name Pusher name
      *
      * @return PushInterface
      */
@@ -56,7 +56,7 @@ class PushesCollection implements \IteratorAggregate
     /**
      * Has push or not.
      *
-     * @param string $name Push name
+     * @param string $name Pusher name
      *
      * @return boolean
      */
@@ -70,7 +70,7 @@ class PushesCollection implements \IteratorAggregate
      *
      * @return \ArrayIterator
      */
-    public function getPushes()
+    public function getPushers()
     {
         return $this->coll;
     }

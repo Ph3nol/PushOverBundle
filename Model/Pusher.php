@@ -2,20 +2,30 @@
 
 namespace Sly\PushOverBundle\Model;
 
-use Sly\PushOverBundle\Model\PushInterface;
+use Sly\PushOverBundle\Model\PusherInterface;
+
+use Sly\PushOver\PushManager as BasePushManager;
 
 /**
- * Push model.
+ * Pusher model.
  *
- * @uses PushInterface
+ * @uses PusherInterface
  * @author Cédric Dugat <ph3@slynett.com>
  */
-class Push implements PushInterface
+class Pusher implements PusherInterface
 {
     protected $userKey;
     protected $apiKey;
     protected $name;
     protected $device;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->getName() ? $this->getName() : null;
+    }
 
     /**
      * {@inheritdoc}
@@ -52,6 +62,22 @@ class Push implements PushInterface
     /**
      * {@inheritdoc}
      */
+    public function getPush()
+    {
+        return $this->push;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setPush(BasePushManager $push)
+    {
+        $this->push = $push;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return $this->name;
@@ -79,5 +105,15 @@ class Push implements PushInterface
     public function setDevice($device)
     {
         $this->device = $device;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getDefaultOptions()
+    {
+        return array(
+            'device' => null,
+        );
     }
 }

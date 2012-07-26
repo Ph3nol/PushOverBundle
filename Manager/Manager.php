@@ -3,11 +3,9 @@
 namespace Sly\PushOverBundle\Manager;
 
 use Sly\PushOverBundle\Config\ConfigManager;
-use Sly\PushOverBundle\Entity\Relation;
-use Sly\PushOverBundle\Manager\ManagerInterface;
 
+use Sly\PushOver\Model\PushInterface;
 use Sly\PushOver\PushManager as BasePushManager;
-use Sly\PushOver\PushManagerInterface as BasePushManagerInterface;
 
 /**
  * Manager.
@@ -16,18 +14,42 @@ use Sly\PushOver\PushManagerInterface as BasePushManagerInterface;
  */
 class Manager
 {
-    protected $push;
     protected $config;
+    protected $pushers;
 
     /**
      * Constructor.
      *
-     * @param BasePushManagerInterface $push   PushOver service
-     * @param ConfigManager            $config ConfigManager service
+     * @param ConfigManager $config ConfigManager service
      */
-    public function __construct(BasePushManagerInterface $push, ConfigManager $config)
+    public function __construct(ConfigManager $config)
     {
-        $this->push   = $push;
-        $this->config = $config;
+        $this->config  = $config;
+        $this->pushers = $this->config->getPushers();
+        $this->message = null;
+
+        $this->_attributeServicesToPushers();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function push($pusherName, PushInterface $push)
+    {
+        $pusherService = $this->pushers[$pusherName]->getPush();
+
+        return $pusherService->push($push);
+    }
+
+    /**
+     * Attribute PushService to each pushers.
+     */
+    protected function _attributeServicesToPushers()
+    {
+        foreach ($this->pushers as $pusher) {
+            $pusher->setPush(
+                new BasePushManager($pusher->getUserKey(), $pusher->getApiKey(), $pusher->getDevice())
+            );
+        }
     }
 }

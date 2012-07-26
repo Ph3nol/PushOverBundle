@@ -2,17 +2,26 @@
 
 namespace Sly\PushOverBundle\Model;
 
+use Sly\PushOver\PushManager as BasePushManager;
+
 /**
- * Push interface.
+ * Pusher interface.
  *
  * @author Cédric Dugat <ph3@slynett.com>
  */
-interface PushInterface
+interface PusherInterface
 {
+    /**
+     * __toString.
+     * 
+     * @return string
+     */
+    public function __toString();
+
     /**
       * Get UserKey value.
       *
-      * @return string UserKey value to get
+      * @return string
       */
     public function getUserKey();
     
@@ -26,7 +35,7 @@ interface PushInterface
     /**
       * Get ApiKey value.
       *
-      * @return string ApiKey value to get
+      * @return string
       */
     public function getApiKey();
     
@@ -38,9 +47,23 @@ interface PushInterface
     public function setApiKey($apiKey);
 
     /**
+      * Get Push value.
+      *
+      * @return BasePushManager
+      */
+    public function getPush();
+    
+    /**
+      * Set Push value.
+      *
+      * @param BasePushManager $push Push value to set
+      */
+    public function setPush(BasePushManager $push);
+
+    /**
       * Get Name value.
       *
-      * @return string Name value to get
+      * @return string
       */
     public function getName();
     
@@ -54,7 +77,7 @@ interface PushInterface
     /**
       * Get Device value.
       *
-      * @return string Device value to get
+      * @return string
       */
     public function getDevice();
     
@@ -64,4 +87,11 @@ interface PushInterface
       * @param string $device Device value to set
       */
     public function setDevice($device);
+
+    /**
+     * getDefaultOptions.
+     * 
+     * @return array
+     */
+    public static function getDefaultOptions();
 }

@@ -2,8 +2,8 @@
 
 namespace Sly\PushOverBundle\Config;
 
-use Sly\PushOverBundle\Model\Push;
-use Sly\PushOverBundle\Model\PushesCollection;
+use Sly\PushOverBundle\Model\Pusher;
+use Sly\PushOverBundle\Manager\ManagerPushersCollection as PushersCollection;
 
 /**
  * ConfigManager.
@@ -13,7 +13,7 @@ use Sly\PushOverBundle\Model\PushesCollection;
 class ConfigManager
 {
     protected $config;
-    protected $pushes;
+    protected $pushers;
 
     /**
      * Constructor.
@@ -22,8 +22,8 @@ class ConfigManager
      */
     public function __construct(array $config)
     {
-        $this->config    = $config;
-        $this->pushes = $this->__initAndGetPushes();
+        $this->config  = $config;
+        $this->pushers = $this->__initAndGetPushers();
     }
 
     /**
@@ -31,29 +31,30 @@ class ConfigManager
      *
      * @return PushesCollection
      */
-    public function getPushes()
+    public function getPushers()
     {
-        return $this->pushes;
+        return $this->pushers;
     }
 
     /**
-     * Get PushesCollection from configuration.
+     * Get PushersCollection from configuration.
      *
-     * @return PushesCollection
+     * @return PushersCollection
      */
-    private function __initAndGetPushes()
+    private function __initAndGetPushers()
     {
-        $pushes = new PushesCollection();
+        $pushers = new PushersCollection();
 
-        foreach ($this->config['pushes'] as $name => $data) {
-            $push = new Push();
+        foreach ($this->config['pushers'] as $name => $data) {
+            $pusher = new Pusher();
+            $pusher->setName($name);
+            $pusher->setUserKey($data['user_key']);
+            $pusher->setApiKey($data['api_key']);
+            $pusher->setDevice($data['device']);
 
-            /**
-             * @todo Set data from config.
-             */
-            $pushes->set($name, $push);
+            $pushers->set($name, $pusher);
         }
 
-        return $pushes;
+        return $pushers;
     }
 }
