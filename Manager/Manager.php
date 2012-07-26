@@ -36,7 +36,11 @@ class Manager
      */
     public function push($pusherName, PushInterface $push)
     {
-        $pusherService = $this->pushers[$pusherName]->getPush();
+        if (false === $this->pushers->has($pusherName)) {
+            throw new \InvalidArgumentException(sprintf('There is no "%s" pusher in your project config file', $pusherName));
+        }
+
+        $pusherService = $this->pushers->get($pusherName)->getPush();
 
         return $pusherService->push($push);
     }
