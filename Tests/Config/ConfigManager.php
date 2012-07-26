@@ -27,10 +27,11 @@ class ConfigManagerTest extends \PHPUnit_Framework_TestCase
     private function __getTestConfig()
     {
         return array(
-            'pushes' => array(
-                'user_key' => 'myT3stUs3rK3y',
-                'api_key'  => 'myT3st4p1K3y',
-                'device'   => null,
+            'pushers' => array(
+                'myPusher' => array(
+                    'user_key' => 'myT3stUs3rK3y',
+                    'api_key'  => 'myT3st4p1K3y',
+                ),
             )
         );
     }
