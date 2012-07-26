@@ -15,6 +15,13 @@ It uses my [PushOver PHP library](https://github.com/Ph3nol/PushOver).
 
 - **[Read Documentation](https://github.com/Ph3nol/PushOverBundle/blob/master/Resources/doc/index.markdown)**
 
+# To do
+
+* Add an icon/notification at the Symfony2 WebDebug bar to indicate if a push is sent (and how many)
+* Record sent pushes into database (Doctrine and/or Redis drivers)
+* Add RabbitMQ support to manage pushes sending
+* Write tests!
+
 ## License
 
 This bundle is under the MIT license. See the complete license in the bundle:
