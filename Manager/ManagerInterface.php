@@ -4,6 +4,9 @@ namespace Sly\PushOverBundle\Manager;
 
 use Sly\PushOver\Model\PushInterface;
 
+/**
+ * ManagerInterface.
+ */
 interface ManagerInterface
 {
     /**

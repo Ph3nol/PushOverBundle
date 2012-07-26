@@ -24,7 +24,7 @@ interface PusherInterface
       * @return string
       */
     public function getUserKey();
-    
+
     /**
       * Set UserKey value.
       *
@@ -38,7 +38,7 @@ interface PusherInterface
       * @return string
       */
     public function getApiKey();
-    
+
     /**
       * Set ApiKey value.
       *
@@ -52,7 +52,7 @@ interface PusherInterface
       * @return BasePushManager
       */
     public function getPush();
-    
+
     /**
       * Set Push value.
       *
@@ -66,7 +66,7 @@ interface PusherInterface
       * @return string
       */
     public function getName();
-    
+
     /**
       * Set Name value.
       *
@@ -80,7 +80,7 @@ interface PusherInterface
       * @return string
       */
     public function getDevice();
-    
+
     /**
       * Set Device value.
       *

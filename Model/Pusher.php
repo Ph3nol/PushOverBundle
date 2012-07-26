@@ -34,7 +34,7 @@ class Pusher implements PusherInterface
     {
         return $this->userKey;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -50,7 +50,7 @@ class Pusher implements PusherInterface
     {
         return $this->apiKey;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -66,7 +66,7 @@ class Pusher implements PusherInterface
     {
         return $this->push;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -82,7 +82,7 @@ class Pusher implements PusherInterface
     {
         return $this->name;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -98,7 +98,7 @@ class Pusher implements PusherInterface
     {
         return $this->device;
     }
-    
+
     /**
      * {@inheritdoc}
      */

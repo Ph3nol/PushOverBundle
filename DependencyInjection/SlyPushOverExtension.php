@@ -35,20 +35,16 @@ class SlyPushOverExtension extends Extension
 
         $configuration = array_merge($this->_getDefaultOptions(), $configuration);
 
-        if (false === (bool) count($configuration['pushers']) && false === $this->_configurationHasKeys($configuration))
-        {
+        if (false === (bool) count($configuration['pushers']) && false === $this->_configurationHasKeys($configuration)) {
             throw new \InvalidArgumentException('You have to set global "user_key" and "api_key" into your project config file');
         }
 
-        foreach ($configuration['pushers'] as $pusherName => $pusherConfig)
-        {
-            if (false === $this->_configurationHasKeys($configuration) && false === $this->_configurationHasKeys($pusherConfig))
-            {
+        foreach ($configuration['pushers'] as $pusherName => $pusherConfig) {
+            if (false === $this->_configurationHasKeys($configuration) && false === $this->_configurationHasKeys($pusherConfig)) {
                 throw new \InvalidArgumentException(sprintf('"%s" pusher has to have a "user_key" and "api_key" into your project config file', $pusherName));
             }
 
-            if (true === $this->_configurationHasKeys($configuration) && false === $this->_configurationHasKeys($pusherConfig))
-            {
+            if (true === $this->_configurationHasKeys($configuration) && false === $this->_configurationHasKeys($pusherConfig)) {
                 $pusherConfig['user_key'] = $configuration['user_key'];
                 $pusherConfig['api_key']  = $configuration['api_key'];
             }
