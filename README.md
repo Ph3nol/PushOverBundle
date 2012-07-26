@@ -1,8 +1,6 @@
 SlyPushOverBundle
 ====================
 
-**Development in progress.**
-
 [![Continuous Integration status](https://secure.travis-ci.org/Ph3nol/PushOverBundle.png)](http://travis-ci.org/Ph3nol/PushOverBundle)
 
 This bundle provides an easy PushOver service use: send real-time notifications to your Android and iOS devices.
