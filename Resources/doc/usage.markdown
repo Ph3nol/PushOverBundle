@@ -27,7 +27,12 @@ sly_push_over:
         mySecondPusher: ~
         myThirdPusher:
             device: My-Device-Name
+            enabled: false
 ```
+
+Each pusher accepts an `enabled` parameter. Switch it to `false` to simulate a
+notification has been sent. You can set a global `enabled` parameter too which affect
+all pushers.
 
 ## 2. Use PushOver service
 
