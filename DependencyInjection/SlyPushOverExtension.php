@@ -77,6 +77,7 @@ class SlyPushOverExtension extends Extension
         return array(
             'user_key' => null,
             'api_key'  => null,
+            'enabled'  => true,
             'pushers'  => array(),
         );
     }

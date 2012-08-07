@@ -51,6 +51,7 @@ class ConfigManager
             $pusher->setUserKey($data['user_key']);
             $pusher->setApiKey($data['api_key']);
             $pusher->setDevice($data['device']);
+            $pusher->setEnabled((bool) $data['enabled']);
 
             $pushers->set($name, $pusher);
         }

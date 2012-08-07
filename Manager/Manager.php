@@ -40,9 +40,14 @@ class Manager
             throw new \InvalidArgumentException(sprintf('There is no "%s" pusher in your project config file', $pusherName));
         }
 
-        $pusherService = $this->pushers->get($pusherName)->getPush();
+        $pusher        = $this->pushers->get($pusherName);
+        $pusherService = $pusher->getPush();
 
-        return $pusherService->push($push);
+        if (true === (bool) $pusher->getEnabled()) {
+            return $pusherService->push($push);
+        } else {
+            return true;
+        }
     }
 
     /**

@@ -110,10 +110,27 @@ class Pusher implements PusherInterface
     /**
      * {@inheritdoc}
      */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public static function getDefaultOptions()
     {
         return array(
-            'device' => null,
+            'device'  => null,
+            'enabled' => true,
         );
     }
 }

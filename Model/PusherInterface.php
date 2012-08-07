@@ -89,6 +89,20 @@ interface PusherInterface
     public function setDevice($device);
 
     /**
+      * Get Enabled value.
+      *
+      * @return string
+      */
+    public function getEnabled();
+
+    /**
+      * Set Enabled value.
+      *
+      * @param string $enabled Enabled value to set
+      */
+    public function setEnabled($enabled);    
+
+    /**
      * getDefaultOptions.
      * 
      * @return array
