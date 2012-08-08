@@ -27,7 +27,9 @@ class SlyPushOverExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('config.xml');
+        $loader->load('logger.xml');
         $loader->load('manager.xml');
+        $loader->load('data_collector.xml');
 
         $configuration = $configs[0];
 

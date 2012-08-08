@@ -3,6 +3,7 @@
 namespace Sly\PushOverBundle\Manager;
 
 use Sly\PushOverBundle\Config\ConfigManager;
+use Sly\PushOverBundle\Logger\PushOverLogger;
 use Sly\PushOverBundle\Manager\ManagerInterface;
 
 use Sly\PushOver\Model\PushInterface;
@@ -18,17 +19,20 @@ use Sly\PushOverBundle\Manager\PushesCollection;
 class Manager implements ManagerInterface
 {
     protected $config;
+    protected $logger;
     protected $pushers;
     protected $sentPushes;
 
     /**
      * Constructor.
      *
-     * @param ConfigManager $config ConfigManager service
+     * @param ConfigManager  $config ConfigManager service
+     * @param PushOverLogger $logger Logger service
      */
-    public function __construct(ConfigManager $config)
+    public function __construct(ConfigManager $config, PushOverLogger $logger)
     {
         $this->config     = $config;
+        $this->logger     = $logger;
         $this->pushers    = $this->config->getPushers();
         $this->sentPushes = new PushesCollection();
 
@@ -49,7 +53,7 @@ class Manager implements ManagerInterface
 
         $sentPush = $pusherService->push($push, $pusher->getEnabled());
 
-        $this->sentPushes->set(md5($sentPush->push->getSentAt()->format('u')), $sentPush->push);
+        $this->logger->logSentPush($sentPush->push);
 
         return (bool) $sentPush;
     }

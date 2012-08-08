@@ -5,12 +5,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="sly_push_over.manager.class">Sly\PushOverBundle\Manager\Manager</parameter>
+        <parameter key="sly_push_over.data_collector.class">Sly\PushOverBundle\DataCollector\PushesDataCollector</parameter>
     </parameters>
 
     <services>
-        <service id="sly_push_over" class="%sly_push_over.manager.class%">
-            <argument type="service" id="sly_push_over.config_manager" />
+        <service id="sly_push_over.data_collector" class="%sly_push_over.data_collector.class%">
+            <tag name="data_collector" template="SlyPushOverBundle:Collector:pushes" id="sly_push_over" />
             <argument type="service" id="sly_push_over.logger" />
         </service>
     </services>

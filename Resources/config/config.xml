@@ -6,12 +6,15 @@
 
     <parameters>
         <parameter key="sly_push_over.config_manager.class">Sly\PushOverBundle\Config\ConfigManager</parameter>
+        <parameter key="sly_push_over.pushes_collection.class">Sly\PushOverBundle\Manager\PushesCollection</parameter>
     </parameters>
 
     <services>
         <service id="sly_push_over.config_manager" class="%sly_push_over.config_manager.class%" public="false">
             <argument>%sly_push_over.config%</argument>
         </service>
+
+        <service id="sly_push_over.pushes_collection" class="%sly_push_over.pushes_collection.class%" public="false" />
     </services>
 
 </container>
