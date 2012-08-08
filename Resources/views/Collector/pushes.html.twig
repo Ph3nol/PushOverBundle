@@ -31,11 +31,13 @@
         <ul style="margin-left: 25px">
             {% for push in collector.sentPushes %}
                 <li style="list-style-type: circle; font-size: 0.9em; padding: 2px 0; font-family: monospace;">
-                    {% if push.sentAt %}
-                        <strong style="color: green">{{ push.sentAt | date('Y-m-d H:i:s') }}</strong><br />
+                    {% if push.hasBeenSent %}
+                        <strong style="color: green">{{ push.sentAt | date('Y-m-d H:i:s') }}</strong>
                     {% else %}
                         <strong>Not sent</strong>
                     {% endif %}
+
+                    <br />
 
                     {% if push.title %}
                         {{ push.title }} /

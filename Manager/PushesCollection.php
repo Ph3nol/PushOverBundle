@@ -36,33 +36,9 @@ class PushesCollection implements \IteratorAggregate
      * @param string        $name Push Name
      * @param PushInterface $push Push
      */
-    public function set($name, PushInterface $push)
+    public function set(PushInterface $push)
     {
-        $this->coll[$name] = $push;
-    }
-
-    /**
-     * Get method.
-     *
-     * @param string $name Push name
-     *
-     * @return PushInterface
-     */
-    public function get($name)
-    {
-        return isset($this->coll[$name]) ? $this->coll[$name] : null;
-    }
-
-    /**
-     * Has push or not.
-     *
-     * @param string $name Push name
-     *
-     * @return boolean
-     */
-    public function has($name)
-    {
-        return $this->coll->offsetExists($name);
+        $this->coll[] = $push;
     }
 
     /**

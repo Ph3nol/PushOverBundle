@@ -33,7 +33,7 @@ class PushOverLogger
      */
     public function logSentPush(PushInterface $push)
     {
-        $this->sentPushes->set(md5($push->getSentAt()->format('u')), $push);
+        $this->sentPushes->set($push);
     }
 
     /**
