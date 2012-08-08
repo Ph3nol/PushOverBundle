@@ -51,7 +51,7 @@ Here is an example:
 
     $push = $this->container->get('sly_pushover');
 
-    $myPush = new \Sly\PushOver\Model\Push();
+    $myPush = new \Sly\PushOverBundle\Model\Push();
     $myPush->setMessage('Pony is powerful!');
 
     /**
