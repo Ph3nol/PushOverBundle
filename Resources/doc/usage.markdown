@@ -49,15 +49,15 @@ Here is an example:
 
     // ...
 
-    $push = $this->container->get('sly_pushover');
+    $pushManager = $this->container->get('sly_pushover');
 
-    $myPush = new \Sly\PushOverBundle\Model\Push();
+    $myPush = new \Sly\PushOver\Model\Push();
     $myPush->setMessage('Pony is powerful!');
 
     /**
      * 'myPusherName' is your pusher name, defined into your config file.
      */
-    if (true === $push->push('myPusherName', $myPush))
+    if (true === $pushManager->push('myPusherName', $myPush))
     {
         /**
          * The message has been pushed.
