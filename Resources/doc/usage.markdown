@@ -49,7 +49,7 @@ Here is an example:
 
     // ...
 
-    $pushManager = $this->container->get('sly_pushover');
+    $pushManager = $this->container->get('sly_push_over');
 
     $myPush = new \Sly\PushOver\Model\Push();
     $myPush->setMessage('Pony is powerful!');
