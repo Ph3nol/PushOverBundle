@@ -2,7 +2,7 @@
 
 namespace Sly\PushOverBundle\Logger;
 
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 use Sly\PushOver\Model\PushInterface;
 use Sly\PushOverBundle\Manager\PushesCollection;
 
